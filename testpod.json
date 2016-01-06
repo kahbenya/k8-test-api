@@ -1,0 +1,40 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "test-api",
+    "labels" : {
+        "app": "test-api"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "api",
+        "image": "testapi",
+        "command": [
+          "sh", "-c", "cd /usr/src/app/; python app.py"
+        ],
+        "ports": [
+          {
+            "name" : "app-port",
+            "containerPort": 80 
+          }
+        ]
+      },
+      {
+        "name": "kubectl",
+        "image": "gcr.io/google_containers/kubectl:v0.18.0-120-gaeb4ac55ad12b1-dirty",
+        "args": [
+          "proxy", "-p", "8001"
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "test-volume",
+        "emptyDir": {}
+      }
+    ]
+  }
+}

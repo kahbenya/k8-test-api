@@ -1,0 +1,23 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"api-test",
+      "labels":{
+         "app":"test-api"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":80,
+           "targetPort":"app-port",
+           "nodePort": 30080
+         }
+      ],
+      "selector":{
+         "app":"test-api"
+      },
+      "type": "NodePort"
+   }
+}
