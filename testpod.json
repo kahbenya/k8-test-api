@@ -18,7 +18,7 @@
         "ports": [
           {
             "name" : "app-port",
-            "containerPort": 80 
+            "containerPort":5000
           }
         ]
       },

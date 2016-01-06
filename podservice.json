@@ -10,7 +10,7 @@
    "spec":{
       "ports": [
          {
-           "port":80,
+           "port":5000,
            "targetPort":"app-port",
            "nodePort": 30080
          }
